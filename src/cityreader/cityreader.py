@@ -1,3 +1,4 @@
+import csv
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
@@ -14,7 +15,7 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
-class Cities:
+class City:
   def __init__(self, name, lat, lon):
     self.name = name
     self.lat = lat
@@ -27,11 +28,11 @@ def cityreader(cities=[]):
   # For each city record, create a new City instance and add it to the 
   # `cities` list
 
-  with open("cities.csv", newcity="") as nc:
-    f = csv.reader(nc, delimiter=",")
+  with open("/Users/mr.price/Desktop/Lambda Work/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv") as nc:
+    f = csv.reader(nc)
     fields = next(f)
     for line in f:
-      cities.append(Cities(line[0], line[1]))
+      cities.append(City(line[0], float(line[3]), float(line[4])))
 
     return cities
 
@@ -39,7 +40,7 @@ cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print("\n", c.name, c.lat, c.lon)
+    print(c.name + ", " + str(c.lat) + ", " + str(c.lon))
 
 # STRETCH GOAL!
 #
@@ -81,3 +82,5 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # the specified coordinates.
 
   return within
+
+
