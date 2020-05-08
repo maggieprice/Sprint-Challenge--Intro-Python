@@ -27,6 +27,15 @@ print("Starts with D:")
 a = []
 print(a)
 
+# def starts_with_d(humans.name):
+#     return humans.name 
+# an_iterator = 
+filtered_names = [d for d in humans.name if "D" in d]
+print(filtered_names)
+# print(filtered_names)
+
+
+
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
